@@ -1,11 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cronômetro</title>
+  <meta charset="UTF-8">
+  <title>Cronômetro</title>
+  <style>
+    body {
+      font-family:  sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+    #tempo {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    button {
+      margin: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
 </head>
 <body>
-    
+<div id="display">00:00</div>
+
+<button id="startBtn">Inciar</button>
+<button id="pauseBtn">Pausar</button>
+<button id="resetBtn">Resetar</button>
+ 
+<script src="./scrpit.js"></script>
 </body>
 </html>
