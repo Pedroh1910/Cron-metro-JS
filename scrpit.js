@@ -26,6 +26,7 @@ function iniciarCronometro(){
     }, 1000)
 }
 
+
 //função de pausar no cronômetro
 function pausarCronometro(){
     clearInterval(intervalo)
