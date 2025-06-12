@@ -5,31 +5,59 @@
   <title>Cronômetro</title>
   <style>
     body {
-      font-family:  sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       text-align: center;
       padding-top: 50px;
       background-color: aqua;
-    }
-    #tempo {
-      font-size: 48px;
-      margin-bottom: 20px;
-    }
-    button {
-      margin: 5px;
-      padding: 10px 20px;
-      font-size: 16px;
+      transition: background-color 0.5s ease;
     }
 
+    #display {
+      font-size: 64px;
+      font-weight: bold;
+      margin-bottom: 30px;
+      padding: 20px;
+      background: white;
+      display: inline-block;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    button {
+      margin: 10px;
+      padding: 15px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background-color: #007BFF;
+      color: white;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #bgColorBtn {
+      background-color: #28a745;
+    }
+
+    #bgColorBtn:hover {
+      background-color: #1e7e34;
+    }
   </style>
 </head>
 <body>
-    
-<div id="display">00:00</div>
 
-<button id="startBtn">Inciar</button>
-<button id="pauseBtn">Pausar</button>
-<button id="resetBtn">Resetar</button>
- 
-<script src="./scrpit.js"></script>
+  <div id="display">00:00:00</div><br>
+
+  <button id="startBtn">Iniciar</button>
+  <button id="pauseBtn">Pausar</button>
+  <button id="resetBtn">Resetar</button>
+  <button id="bgColorBtn">Mudar Cor de Fundo</button>
+
+  <!-- Link para o arquivo JavaScript -->
+  <script src="./scrpit.js"></script>
 </body>
 </html>

@@ -1,53 +1,50 @@
-//Declaração de Variaveis
-let segundos = 0
+let milissegundos = 0
 let intervalo = null
-//elemenos do DOM para manipulação
+
 const display = document.getElementById("display")
 const startBtn = document.getElementById("startBtn")
 const pauseBtn = document.getElementById("pauseBtn")
 const resetBtn = document.getElementById("resetBtn")
+const bgColorBtn = document.getElementById("bgColorBtn")
 
-//botão start
 startBtn.addEventListener("click", iniciarCronometro)
-
-//botão pausar
 pauseBtn.addEventListener("click", pausarCronometro)
-
-//botão resetar
 resetBtn.addEventListener("click", resetCronometro)
+bgColorBtn.addEventListener("click", mudarCorFundo)
 
-//função de start no cronômetro
-function iniciarCronometro(){
-    if(intervalo)return //evita que exista mutiplos intervalos
-//guarda em intervalo o passar de 1seg ou 1000ms
-    intervalo = setInterval(()=>{
-        segundos++
-        atualizaDisplay()
-    }, 1000)
-}
-
-
-//função de pausar no cronômetro
-function pausarCronometro(){
-    clearInterval(intervalo)
-    intervalo = null
-}
-
-//função reset no cronômetro
-function resetCronometro(){
-    pausarCronometro()
-    segundos = 0
+function iniciarCronometro() {
+  if (intervalo) return
+  intervalo = setInterval(() => {
+    milissegundos += 10
     atualizaDisplay()
+  }, 10)
 }
 
-// função de formatar o tempo
-function formatarTempo(segundosTotais){
-    const minutos = Math.floor(segundosTotais/60)
-    const segundos = segundosTotais %60 
-    return `${String(minutos).padStart(2,'0')}:${String(segundos).padStart(2,'0')}`
+function pausarCronometro() {
+  clearInterval(intervalo)
+  intervalo = null
 }
 
-//função que envia o tempo para pagina
-function atualizaDisplay(){
-    display.textContent =formatarTempo(segundos)
+function resetCronometro() {
+  pausarCronometro()
+  milissegundos = 0
+  atualizaDisplay()
+}
+
+function formatarTempo(ms) {
+  const totalSegundos = Math.floor(ms / 1000)
+  const minutos = Math.floor(totalSegundos / 60)
+  const segundos = totalSegundos % 60
+  const milis = Math.floor((ms % 1000) / 10)
+  return `${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}:${String(milis).padStart(2, '0')}`
+}
+
+function atualizaDisplay() {
+  display.textContent = formatarTempo(milissegundos)
+}
+
+function mudarCorFundo() {
+  const cores = ["#FFB6C1", "#ADD8E6", "#90EE90", "#FFA07A", "#E6E6FA", "#F0E68C", "#20B2AA", "#D3D3D3"]
+  const corAleatoria = cores[Math.floor(Math.random() * cores.length)]
+  document.body.style.backgroundColor = corAleatoria
 }
